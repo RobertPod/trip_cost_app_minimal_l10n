@@ -1,5 +1,11 @@
 # trip_cost_app_minimal_l10n
 
+## 1. trip_cost_app
+## Getting Started
+[course: https://app.pluralsight.com/library/courses/flutter-getting-started/](https://app.pluralsight.com/library/courses/flutter-getting-started/)
+chapter: Demo: Fuel Cost Calculator (Part 1 & 2)
+
+
 A new Flutter project.
 
 ## Getting Started
