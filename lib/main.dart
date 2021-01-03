@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import './l10n/MinimalLocalizations.dart';
 
 void main() => runApp(new MyApp());
 
@@ -7,7 +9,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Trip cost calculator',
+      onGenerateTitle: (BuildContext context) =>
+          MinimalLocalizations.of(context).appTitle,
+      localizationsDelegates: [
+        const MinimalLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', ''),
+        const Locale('es', ''),
+        const Locale('pl', ''),
+      ],
       home: new FuelForm(),
     );
   }
@@ -28,15 +41,15 @@ class _FuelFormState extends State<FuelForm> {
   String result = "";
   String _currency = "";
   final _currencies = ['Dollars', 'Euro', 'Pounds', 'Yen'];
+
   //this allows us to control the text in a textField
   TextEditingController distanceController = TextEditingController();
-  TextEditingController avgController =  TextEditingController();
-  TextEditingController fuelController =  TextEditingController();
+  TextEditingController avgController = TextEditingController();
+  TextEditingController fuelController = TextEditingController();
 
   @override
   void initState() {
     this._currency = _currencies[0];
-   
   }
 
   void _reset() {
@@ -53,10 +66,7 @@ class _FuelFormState extends State<FuelForm> {
     double _fuelCost = double.parse(fuelController.text);
     double _consumption = double.parse(avgController.text);
     double _totalCost = _distance / _consumption * _fuelCost;
-    String _result = "The total cost for your trip is " +
-        _totalCost.toStringAsFixed(2) +
-        ' ' +
-        _currency;
+    String _result = " " + _totalCost.toStringAsFixed(2) + ' ' + _currency;
     return _result;
   }
 
@@ -66,7 +76,8 @@ class _FuelFormState extends State<FuelForm> {
     double _formPadding = 5.0;
     return Scaffold(
         appBar: AppBar(
-          title: Text("Trip Cost Calculator"),
+          title: Text(MinimalLocalizations.of(context)
+              .title), // "Trip Cost Calculator"),
           backgroundColor: Color.fromRGBO(66, 165, 245, 1.0),
         ),
         body: Form(
@@ -83,8 +94,10 @@ class _FuelFormState extends State<FuelForm> {
                         style: textStyle,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
-                            hintText: "e.g. 124",
-                            labelText: "Distance",
+                            hintText:
+                                MinimalLocalizations.of(context).distanceEG,
+                            labelText:
+                                MinimalLocalizations.of(context).distance,
                             labelStyle: textStyle,
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5.0))),
@@ -97,8 +110,10 @@ class _FuelFormState extends State<FuelForm> {
                         style: textStyle,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
-                            hintText: "e.g. 17",
-                            labelText: "Distance per Unit",
+                            hintText: MinimalLocalizations.of(context)
+                                .distancePerUnitEG,
+                            labelText: MinimalLocalizations.of(context)
+                                .distancePerUnit,
                             labelStyle: textStyle,
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5.0))),
@@ -113,8 +128,10 @@ class _FuelFormState extends State<FuelForm> {
                           style: textStyle,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
-                              hintText: "e.g. 1.60",
-                              labelText: "Fuel Cost",
+                              labelText:
+                                  MinimalLocalizations.of(context).fuelCost,
+                              hintText:
+                                  MinimalLocalizations.of(context).fuelCostEG,
                               labelStyle: textStyle,
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5.0))),
@@ -146,11 +163,13 @@ class _FuelFormState extends State<FuelForm> {
                       textColor: Theme.of(context).primaryColorLight,
                       onPressed: () {
                         setState(() {
-                          result = _calculate();
+                          result =
+                              // MinimalLocalizations.of(context).theTotalCost +
+                              _calculate();
                         });
                       },
                       child: Text(
-                        'Submit',
+                        MinimalLocalizations.of(context).submit,
                         textScaleFactor: 1.5,
                       ),
                     )),
@@ -162,7 +181,7 @@ class _FuelFormState extends State<FuelForm> {
                         _reset();
                       },
                       child: Text(
-                        'Reset',
+                        MinimalLocalizations.of(context).reset,
                         textScaleFactor: 1.5,
                       ),
                     )),
@@ -170,7 +189,10 @@ class _FuelFormState extends State<FuelForm> {
                   Container(
                       margin: EdgeInsets.only(top: _formPadding * 2),
                       child: Text(
-                        result,
+                        "" == result
+                            ? ""
+                            : MinimalLocalizations.of(context).theTotalCost +
+                                result,
                         style: textStyle,
                       )),
                 ],

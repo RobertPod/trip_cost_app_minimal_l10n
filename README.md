@@ -2,8 +2,13 @@
 
 ## 1. trip_cost_app
 ## Getting Started
-[course: https://app.pluralsight.com/library/courses/flutter-getting-started/](https://app.pluralsight.com/library/courses/flutter-getting-started/)
-chapter: Demo: Fuel Cost Calculator (Part 1 & 2)
+- [course: https://app.pluralsight.com/library/courses/flutter-getting-started/](https://app.pluralsight.com/library/courses/flutter-getting-started/)
+= chapter: Demo: Fuel Cost Calculator (Part 1 & 2)
+
+## 2. A Flutter localization example application.
+- [Documentation:](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
+- [Example code:](https://github.com/flutter/website/tree/master/examples/internationalization/minimal)
+
 
 
 A new Flutter project.
