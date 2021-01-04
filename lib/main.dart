@@ -77,7 +77,7 @@ class _FuelFormState extends State<FuelForm> {
     return Scaffold(
         appBar: AppBar(
           title: Text(MinimalLocalizations.of(context)
-              .title), // "Trip Cost Calculator"),
+              .find('title')), // "Trip Cost Calculator"),
           backgroundColor: Color.fromRGBO(66, 165, 245, 1.0),
         ),
         body: Form(
@@ -94,10 +94,10 @@ class _FuelFormState extends State<FuelForm> {
                         style: textStyle,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
-                            hintText:
-                                MinimalLocalizations.of(context).distanceEG,
-                            labelText:
-                                MinimalLocalizations.of(context).distance,
+                            hintText: MinimalLocalizations.of(context)
+                                .find('distanceEG'),
+                            labelText: MinimalLocalizations.of(context)
+                                .find('distance'),
                             labelStyle: textStyle,
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5.0))),
@@ -111,9 +111,9 @@ class _FuelFormState extends State<FuelForm> {
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                             hintText: MinimalLocalizations.of(context)
-                                .distancePerUnitEG,
+                                .find('distancePerUnitEG'),
                             labelText: MinimalLocalizations.of(context)
-                                .distancePerUnit,
+                                .find('distancePerUnit'),
                             labelStyle: textStyle,
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5.0))),
@@ -128,10 +128,10 @@ class _FuelFormState extends State<FuelForm> {
                           style: textStyle,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
-                              labelText:
-                                  MinimalLocalizations.of(context).fuelCost,
-                              hintText:
-                                  MinimalLocalizations.of(context).fuelCostEG,
+                              labelText: MinimalLocalizations.of(context)
+                                  .find('fuelCost'),
+                              hintText: MinimalLocalizations.of(context)
+                                  .find('fuelCostEG'),
                               labelStyle: textStyle,
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5.0))),
@@ -169,7 +169,7 @@ class _FuelFormState extends State<FuelForm> {
                         });
                       },
                       child: Text(
-                        MinimalLocalizations.of(context).submit,
+                        MinimalLocalizations.of(context).find('submit'),
                         textScaleFactor: 1.5,
                       ),
                     )),
@@ -181,7 +181,7 @@ class _FuelFormState extends State<FuelForm> {
                         _reset();
                       },
                       child: Text(
-                        MinimalLocalizations.of(context).reset,
+                        MinimalLocalizations.of(context).find('reset'),
                         textScaleFactor: 1.5,
                       ),
                     )),
@@ -191,7 +191,8 @@ class _FuelFormState extends State<FuelForm> {
                       child: Text(
                         "" == result
                             ? ""
-                            : MinimalLocalizations.of(context).theTotalCost +
+                            : MinimalLocalizations.of(context)
+                                    .find('theTotalCost') +
                                 result,
                         style: textStyle,
                       )),

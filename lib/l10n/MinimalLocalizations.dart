@@ -16,68 +16,10 @@ class MinimalLocalizations {
         context, MinimalLocalizations);
   }
 
-  String get title {
-    return _localizedValues[locale.languageCode]['title'];
-  }
-
-  String get body {
-    return _localizedValues[locale.languageCode]['body'];
-  }
+  String find(String key) => _localizedValues[locale.languageCode][key] ?? '';
 
   String get appTitle {
     return _localizedValues[locale.languageCode]['appTitle'];
-  }
-
-  String get distance {
-    return _localizedValues[locale.languageCode]['distance'];
-  }
-
-  String get distancePerUnit {
-    return _localizedValues[locale.languageCode]['distancePerUnit'];
-  }
-
-  String get fuelCost {
-    return _localizedValues[locale.languageCode]['fuelCost'];
-  }
-
-  String get submit {
-    return _localizedValues[locale.languageCode]['submit'];
-  }
-
-  String get reset {
-    return _localizedValues[locale.languageCode]['reset'];
-  }
-
-  String get dollars {
-    return _localizedValues[locale.languageCode]['dollars'];
-  }
-
-  String get euro {
-    return _localizedValues[locale.languageCode]['euro'];
-  }
-
-  String get pounds {
-    return _localizedValues[locale.languageCode]['pounds'];
-  }
-
-  String get yen {
-    return _localizedValues[locale.languageCode]['yen'];
-  }
-
-  String get theTotalCost {
-    return _localizedValues[locale.languageCode]['theTotalCost'];
-  }
-
-  String get distanceEG {
-    return _localizedValues[locale.languageCode]['distanceEG'];
-  }
-
-  String get distancePerUnitEG {
-    return _localizedValues[locale.languageCode]['distancePerUnitEG'];
-  }
-
-  String get fuelCostEG {
-    return _localizedValues[locale.languageCode]['fuelCostEG'];
   }
 }
 
